@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Лучшие суши и роллы с доставкой на дом. Свежие ингредиенты, быстрая доставка.">
+  <meta name="theme-color" content="#e74c3c">
+  
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="img/icons/icon-192x192.png">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <title>Суши Доставка - Заказ суши и роллов онлайн</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand header__logo" href="index.html">
+          <i class="bi bi-basket2-fill text-danger"></i>
+          <span class="header__logo-text fw-bold ms-2">Суши Доставка</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="coming-soon.html">Новинки</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Контакты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="cart.html">
+                <i class="bi bi-cart3 fs-5"></i>
+                <span class="cart-badge badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Install Modal -->
+  <div class="modal fade" id="installModal" tabindex="-1" aria-labelledby="installModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="installModalLabel">
+            <i class="bi bi-download text-danger"></i> Установить приложение
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="img/icons/icon-192x192.png" alt="Суши Доставка" class="mb-3" style="width: 80px; height: 80px;">
+          <h6 class="mb-3">Установите приложение "Суши Доставка"</h6>
+          <p class="text-muted small">Получите быстрый доступ к заказу суши прямо с главного экрана вашего устройства!</p>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-danger" id="installButton">
+              <i class="bi bi-download"></i> Установить
+            </button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Позже</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content" style="margin-top: 76px;">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="hero__title display-4 fw-bold mb-3">Лучшие суши в городе</h1>
+            <p class="hero__subtitle lead text-muted mb-4">Свежие ингредиенты, традиционные рецепты, быстрая доставка</p>
+            <a href="products.html" class="btn btn-danger btn-lg">
+              <i class="bi bi-basket2"></i> Заказать сейчас
+            </a>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=600&h=400&fit=crop" alt="Суши" class="img-fluid rounded-3 shadow">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Slider -->
+    <section class="categories section">
+      <div class="container">
+        <h2 class="section__title text-center mb-4">Категории</h2>
+        <div id="categoriesCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row g-3">
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=rolls" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill text-danger" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="category-card__title">Роллы</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=sushi" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill text-warning" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="category-card__title">Суши</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=sets" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill text-success" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="category-card__title">Сеты</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=wok" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill text-info" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="category-card__title">WOK</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row g-3">
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=soups" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="category-card__title">Супы</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=salads" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill" style="font-size: 3rem; color: #2ecc71;"></i>
+                        </div>
+                        <h5 class="category-card__title">Салаты</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=drinks" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill text-secondary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="category-card__title">Напитки</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-3">
+                  <a href="products.html?category=desserts" class="category-card text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100 text-center">
+                      <div class="card-body">
+                        <div class="category-card__icon mb-3">
+                          <i class="bi bi-circle-fill" style="font-size: 3rem; color: #e84393;"></i>
+                        </div>
+                        <h5 class="category-card__title">Десерты</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущая</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующая</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Stories -->
+    <section class="reviews section bg-light py-5">
+      <div class="container">
+        <h2 class="section__title text-center mb-4">Отзывы наших клиентов</h2>
+        <div class="reviews__container">
+          <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="story-card" data-bs-toggle="modal" data-bs-target="#story1">
+                <div class="story-card__wrapper">
+                  <img src="https://i.pravatar.cc/150?img=1" alt="Анна" class="story-card__image">
+                  <div class="story-card__ring"></div>
+                </div>
+                <p class="story-card__name text-center mt-2 small">Анна</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="story-card" data-bs-toggle="modal" data-bs-target="#story2">
+                <div class="story-card__wrapper">
+                  <img src="https://i.pravatar.cc/150?img=12" alt="Михаил" class="story-card__image">
+                  <div class="story-card__ring"></div>
+                </div>
+                <p class="story-card__name text-center mt-2 small">Михаил</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="story-card" data-bs-toggle="modal" data-bs-target="#story3">
+                <div class="story-card__wrapper">
+                  <img src="https://i.pravatar.cc/150?img=5" alt="Елена" class="story-card__image">
+                  <div class="story-card__ring"></div>
+                </div>
+                <p class="story-card__name text-center mt-2 small">Елена</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="story-card" data-bs-toggle="modal" data-bs-target="#story4">
+                <div class="story-card__wrapper">
+                  <img src="https://i.pravatar.cc/150?img=33" alt="Дмитрий" class="story-card__image">
+                  <div class="story-card__ring"></div>
+                </div>
+                <p class="story-card__name text-center mt-2 small">Дмитрий</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <div class="story-card" data-bs-toggle="modal" data-bs-target="#story5">
+                <div class="story-card__wrapper">
+                  <img src="https://i.pravatar.cc/150?img=9" alt="Ольга" class="story-card__image">
+                  <div class="story-card__ring"></div>
+                </div>
+                <p class="story-card__name text-center mt-2 small">Ольга</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Modals -->
+    <div class="modal fade" id="story1" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center p-4">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+            <img src="https://i.pravatar.cc/300?img=1" alt="Анна" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+            <h4>Анна</h4>
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-center">"Заказываю здесь уже полгода! Суши всегда свежие, доставка быстрая. Особенно нравится филадельфия!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="story2" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center p-4">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+            <img src="https://i.pravatar.cc/300?img=12" alt="Михаил" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+            <h4>Михаил</h4>
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-center">"Лучшие суши в городе! Рекомендую попробовать сет 'Император' - просто огонь!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="story3" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center p-4">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+            <img src="https://i.pravatar.cc/300?img=5" alt="Елена" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+            <h4>Елена</h4>
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+            <p class="text-center">"Отличное качество! Всегда заказываю на вечеринки. Гости в восторге!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="story4" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center p-4">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+            <img src="https://i.pravatar.cc/300?img=33" alt="Дмитрий" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+            <h4>Дмитрий</h4>
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-center">"Привезли за 20 минут! Все горячее и вкусное. Буду заказывать еще!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="story5" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center p-4">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+            <img src="https://i.pravatar.cc/300?img=9" alt="Ольга" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+            <h4>Ольга</h4>
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-center">"Прекрасный сервис! Спасибо за вкусные роллы и внимательное отношение!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <section class="products section py-5">
+      <div class="container">
+        <h2 class="section__title text-center mb-4">Популярные блюда</h2>
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card card h-100 border-0 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=300&h=200&fit=crop" class="card-img-top" alt="Филадельфия">
+              <div class="card-body">
+                <h5 class="product-card__title card-title">Филадельфия</h5>
+                <p class="product-card__description card-text text-muted small">Лосось, сливочный сыр, огурец</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-card__price fw-bold text-danger">590 ₽</span>
+                  <button class="btn btn-sm btn-outline-danger" onclick="addToCart(1)">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card card h-100 border-0 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=300&h=200&fit=crop" class="card-img-top" alt="Калифорния">
+              <div class="card-body">
+                <h5 class="product-card__title card-title">Калифорния</h5>
+                <p class="product-card__description card-text text-muted small">Краб, авокадо, икра тобико</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-card__price fw-bold text-danger">490 ₽</span>
+                  <button class="btn btn-sm btn-outline-danger" onclick="addToCart(2)">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card card h-100 border-0 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=300&h=200&fit=crop" class="card-img-top" alt="Дракон">
+              <div class="card-body">
+                <h5 class="product-card__title card-title">Дракон</h5>
+                <p class="product-card__description card-text text-muted small">Угорь, огурец, авокадо</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-card__price fw-bold text-danger">650 ₽</span>
+                  <button class="btn btn-sm btn-outline-danger" onclick="addToCart(3)">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card card h-100 border-0 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=300&h=200&fit=crop" class="card-img-top" alt="Сет Император">
+              <div class="card-body">
+                <h5 class="product-card__title card-title">Сет Император</h5>
+                <p class="product-card__description card-text text-muted small">40 шт, ассорти</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="product-card__price fw-bold text-danger">1990 ₽</span>
+                  <button class="btn btn-sm btn-outline-danger" onclick="addToCart(4)">
+                    <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-4">
+          <a href="products.html" class="btn btn-outline-danger">Посмотреть все блюда</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="promo section bg-danger text-white py-5">
+      <div class="container text-center">
+        <h2 class="section__title mb-3">🔥 Скидка 30% на все сеты!</h2>
+        <p class="lead mb-4">Успей заказать до конца акции!</p>
+        <div class="countdown d-flex justify-content-center gap-3 flex-wrap">
+          <div class="countdown__item">
+            <div class="countdown__value display-4 fw-bold" id="days">00</div>
+            <div class="countdown__label">дней</div>
+          </div>
+          <div class="countdown__separator display-4 fw-bold">:</div>
+          <div class="countdown__item">
+            <div class="countdown__value display-4 fw-bold" id="hours">00</div>
+            <div class="countdown__label">часов</div>
+          </div>
+          <div class="countdown__separator display-4 fw-bold">:</div>
+          <div class="countdown__item">
+            <div class="countdown__value display-4 fw-bold" id="minutes">00</div>
+            <div class="countdown__label">минут</div>
+          </div>
+          <div class="countdown__separator display-4 fw-bold">:</div>
+          <div class="countdown__item">
+            <div class="countdown__value display-4 fw-bold" id="seconds">00</div>
+            <div class="countdown__label">секунд</div>
+          </div>
+        </div>
+        <a href="products.html?category=sets" class="btn btn-light btn-lg mt-4">Заказать со скидкой</a>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form section py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h2 class="section__title text-center mb-4">Свяжитесь с нами</h2>
+            <form id="contactForm" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">Ваше имя</label>
+                <input type="text" class="form-control" id="name" required>
+                <div class="invalid-feedback">Пожалуйста, введите ваше имя</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="phone" class="form-label">Телефон</label>
+                <input type="tel" class="form-control" id="phone" placeholder="+7 (___) ___-__-__" required>
+                <div class="invalid-feedback">Пожалуйста, введите телефон</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">Пожалуйста, введите корректный email</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="message" class="form-label">Сообщение</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+                <div class="invalid-feedback">Пожалуйста, введите сообщение</div>
+              </div>
+              
+              <div class="d-grid">
+                <button type="submit" class="btn btn-danger btn-lg">
+                  <i class="bi bi-send"></i> Отправить
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5 class="footer__title">Суши Доставка</h5>
+          <p class="footer__text">Лучшие суши и роллы с доставкой на дом</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="footer__title">Навигация</h5>
+          <ul class="footer__list list-unstyled">
+            <li><a href="products.html" class="text-white-50 text-decoration-none">Меню</a></li>
+            <li><a href="team.html" class="text-white-50 text-decoration-none">Наша команда</a></li>
+            <li><a href="contacts.html" class="text-white-50 text-decoration-none">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="footer__title">Контакты</h5>
+          <p class="footer__contact"><i class="bi bi-telephone"></i> +7 (999) 123-45-67</p>
+          <p class="footer__contact"><i class="bi bi-envelope"></i> info@sushi-delivery.ru</p>
+          <div class="footer__social">
+            <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-telegram fs-4"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-whatsapp fs-4"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="bg-white">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2026 Суши Доставка. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/pwa.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
