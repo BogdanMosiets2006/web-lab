@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация 2 - Свеча (ТОЧНАЯ)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: backgroundChange 8s infinite;
+            overflow: hidden;
+        }
+
+        @keyframes backgroundChange {
+            0%, 15% {
+                background: #f5f5f5; /* СВЕТЛЫЙ вначале! */
+            }
+            20%, 60% {
+                background: #0a0a0a; /* Темнеет МОМЕНТАЛЬНО */
+            }
+            65%, 100% {
+                background: #f5f5f5; /* Светлеет снова */
+            }
+        }
+
+        .scene {
+            position: relative;
+            width: 700px;
+            height: 550px;
+        }
+
+        /* Подставка */
+        .ground {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: #704d82;
+            border-radius: 5px;
+        }
+
+        /* ЛЕВАЯ СВЕЧА (маленькая, горит вначале) */
+        .left-candle {
+            position: absolute;
+            bottom: 100px;
+            left: 180px;
+            width: 180px;
+            height: 200px;
+            background: #fff;
+            border: 4px solid #704d82;
+            border-radius: 10px;
+            animation: leftCandleColor 8s infinite;
+        }
+
+        @keyframes leftCandleColor {
+            0%, 20% {
+                background: #fff;
+                box-shadow: none;
+            }
+            25%, 45% {
+                background: #fff; /* Остаётся белой */
+                box-shadow: none;
+            }
+            50%, 55% {
+                background: #ff7a5c; /* КРАСНЕЕТ (оранжево-красная) */
+                box-shadow: 0 0 30px rgba(255, 100, 80, 0.7);
+            }
+            60%, 80% {
+                background: #ff7a5c; /* Остаётся красной */
+                box-shadow: 0 0 30px rgba(255, 100, 80, 0.7);
+            }
+            85%, 100% {
+                background: #fff; /* Возвращается к белому! */
+                box-shadow: none;
+            }
+        }
+
+        .left-wick {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 30px;
+            background: #704d82;
+            border-radius: 4px;
+        }
+
+        /* Огонь левой свечи */
+        .left-flame {
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 70px;
+            background: linear-gradient(to top, #ff8800, #ffaa00, #ffcc00);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: leftFlameLife 8s infinite, flameFlicker 0.5s infinite;
+        }
+
+        @keyframes leftFlameLife {
+            0%, 18% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            20%, 62% {
+                transform: translateX(-50%) scale(0);
+                opacity: 0; /* МОМЕНТАЛЬНО исчезает */
+            }
+            64%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1; /* Появляется снова */
+            }
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% {
+                filter: brightness(1);
+            }
+            50% {
+                filter: brightness(1.15);
+            }
+        }
+
+        /* Лицо левой свечи */
+        .left-eyes {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-eye {
+            width: 14px;
+            height: 14px;
+            background: #704d82;
+            border-radius: 50%;
+        }
+
+        /* Закрытые глаза (>_<) */
+        .left-closed-eyes {
+            position: absolute;
+            top: 72px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            display: flex;
+            justify-content: space-between;
+            animation: leftAngry 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes leftAngry {
+            0%, 45% {
+                opacity: 0;
+            }
+            50%, 62% {
+                opacity: 1;
+            }
+            65%, 100% {
+                opacity: 0;
+            }
+        }
+
+        .left-closed-eye {
+            width: 30px;
+            height: 4px;
+            background: #704d82;
+        }
+
+        .left-closed-eye:first-child {
+            transform: rotate(-20deg) translateX(5px);
+        }
+
+        .left-closed-eye:last-child {
+            transform: rotate(20deg) translateX(-5px);
+        }
+
+        .left-normal-eyes {
+            animation: leftNormalEyes 8s infinite;
+        }
+
+        @keyframes leftNormalEyes {
+            0%, 45% {
+                opacity: 1;
+            }
+            50%, 62% {
+                opacity: 0;
+            }
+            65%, 100% {
+                opacity: 1;
+            }
+        }
+
+        /* ПРАВАЯ СВЕЧА (высокая, РАСТЁТ) */
+        .right-candle {
+            position: absolute;
+            bottom: 100px;
+            right: 180px;
+            width: 140px;
+            background: #fff;
+            border: 4px solid #704d82;
+            border-radius: 10px;
+            animation: rightCandleGrow 8s infinite;
+        }
+
+        @keyframes rightCandleGrow {
+            0%, 3% {
+                height: 250px; /* Изначальная высота */
+            }
+            8%, 18% {
+                height: 300px; /* РАСТЁТ выше */
+            }
+            22%, 100% {
+                height: 250px; /* Возвращается обратно! */
+            }
+        }
+
+        .right-wick {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 30px;
+            background: #704d82;
+            border-radius: 4px;
+        }
+
+        /* НЕТ ОГНЯ У ПРАВОЙ! */
+
+        /* Лицо правой свечи - ГЛАЗА ВЫШЕ */
+        .right-eyes {
+            position: absolute;
+            top: 40px; /* Выше! */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .right-eye {
+            width: 12px;
+            height: 12px;
+            background: #704d82;
+            border-radius: 50%;
+        }
+
+        /* РОТ появляется из маленькой точки - НА УРОВНЕ ФИТИЛЯ ЛЕВОЙ, НИЖЕ ГЛАЗ */
+        .right-mouth {
+            position: absolute;
+            top: 80px; /* Ниже глаз, на уровне фитиля левой */
+            left: 50%;
+            transform: translateX(-50%);
+            background: #704d82;
+            border-radius: 50%;
+            animation: mouthAppear 8s infinite;
+        }
+
+        @keyframes mouthAppear {
+            0%, 7% {
+                width: 8px;
+                height: 8px;
+                opacity: 0;
+            }
+            10% {
+                width: 8px;
+                height: 8px;
+                opacity: 1; /* Маленькая точка */
+            }
+            13% {
+                width: 25px;
+                height: 25px; /* Увеличивается */
+            }
+            16%, 18% {
+                width: 25px;
+                height: 25px;
+                opacity: 1;
+            }
+            20%, 100% {
+                width: 25px;
+                height: 25px;
+                opacity: 0; /* ИСЧЕЗАЕТ после задувания! */
+            }
+        }
+
+        /* Серый шарик (летит к левой) */
+        .gray-ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #888;
+            border-radius: 50%;
+            animation: ballFly 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes ballFly {
+            0%, 13% {
+                opacity: 0;
+                top: 180px; /* На уровне нового рта */
+                right: 250px;
+            }
+            15% {
+                opacity: 1;
+                top: 180px;
+                right: 250px;
+            }
+            19% {
+                opacity: 1;
+                top: 230px; /* К фитилю левой */
+                right: 330px;
+            }
+            20%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Магический круг/аура */
+        .magic-circle {
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid #888;
+            border-radius: 50%;
+            animation: circleExpand 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes circleExpand {
+            0%, 13% {
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+            16% {
+                width: 200px;
+                height: 200px;
+                opacity: 0.6;
+            }
+            19% {
+                width: 500px;
+                height: 500px;
+                opacity: 0;
+            }
+            20%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Заголовок */
+        .title {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #704d82;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        /* Кнопка возврата */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #704d82;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: white;
+        }
+
+        .back-button::before {
+            content: '←';
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка возврата -->
+    <a href="index.html" class="back-button">На главную</a>
+
+    <div class="title">Лабораторная работа №3 - Анимация 2</div>
+    
+    <div class="scene">
+        <div class="ground"></div>
+
+        <!-- ЛЕВАЯ СВЕЧА (маленькая) -->
+        <div class="left-candle">
+            <div class="left-wick"></div>
+            <div class="left-flame"></div>
+            
+            <!-- Обычные глаза -->
+            <div class="left-eyes left-normal-eyes">
+                <div class="left-eye"></div>
+                <div class="left-eye"></div>
+            </div>
+
+            <!-- Злые глаза (>_<) -->
+            <div class="left-closed-eyes">
+                <div class="left-closed-eye"></div>
+                <div class="left-closed-eye"></div>
+            </div>
+        </div>
+
+        <!-- ПРАВАЯ СВЕЧА (высокая, РАСТЁТ) -->
+        <div class="right-candle">
+            <div class="right-wick"></div>
+            
+            <div class="right-eyes">
+                <div class="right-eye"></div>
+                <div class="right-eye"></div>
+            </div>
+            
+            <!-- Рот (появляется из точки) -->
+            <div class="right-mouth"></div>
+        </div>
+
+        <!-- Серый шарик -->
+        <div class="gray-ball"></div>
+
+        <!-- Магический круг -->
+        <div class="magic-circle"></div>
+    </div>
+</body>
+</html>
