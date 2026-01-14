@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - FunZone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles-icons.css">
+</head>
+<body>
+    <header class="header-main">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><span class="logo-icon">🎭</span> FunZone</a>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html">Главная</a>
+                    <a class="nav-link" href="catalog.html">Каталог</a>
+                    <a class="nav-link active" href="cart.html">🛒 Корзина</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <h1 class="mb-4">🛒 Корзина покупок</h1>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Item 1 -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <span class="icon-medium">🎬</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Премьера фильма</h5>
+                                    <p class="text-muted mb-0"><small>15 января, 19:00</small></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group input-group-sm">
+                                        <button class="btn btn-outline-secondary">-</button>
+                                        <input type="number" class="form-control text-center" value="2" min="1">
+                                        <button class="btn btn-outline-secondary">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <span class="fw-bold fs-5">1000 ₽</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-outline-danger btn-sm">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <span class="icon-medium">🎭</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5>Мюзикл "Чикаго"</h5>
+                                    <p class="text-muted mb-0"><small>25 января</small></p>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group input-group-sm">
+                                        <button class="btn btn-outline-secondary">-</button>
+                                        <input type="number" class="form-control text-center" value="1" min="1">
+                                        <button class="btn btn-outline-secondary">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <span class="fw-bold fs-5">1500 ₽</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-outline-danger btn-sm">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Promo -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Промокод</h5>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Введите промокод">
+                                <button class="btn btn-outline-primary">Применить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mb-4">Итого</h4>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Товары:</span>
+                                <span>2500 ₽</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Скидка:</span>
+                                <span class="text-success">0 ₽</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-4">
+                                <strong class="fs-5">К оплате:</strong>
+                                <strong class="fs-4 text-primary">2500 ₽</strong>
+                            </div>
+                            <button class="btn btn-primary btn-lg w-100 mb-3 btn-hover">Оформить заказ</button>
+                            <a href="catalog.html" class="btn btn-outline-primary w-100">Продолжить покупки</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 FunZone.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
