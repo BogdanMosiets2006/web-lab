@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e74c3c">
+  <link rel="manifest" href="/manifest.json">
+  <title>Филадельфия - Суши Доставка</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+      <div class="container">
+        <a class="navbar-brand header__logo" href="index.html">
+          <i class="bi bi-basket2-fill text-danger"></i>
+          <span class="header__logo-text fw-bold ms-2">Суши Доставка</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Меню</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative" href="cart.html">
+                <i class="bi bi-cart3 fs-5"></i>
+                <span class="cart-badge badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content" style="margin-top: 76px;">
+    
+    <section class="product-details section py-5">
+      <div class="container">
+        
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item"><a href="products.html">Меню</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Филадельфия</li>
+          </ol>
+        </nav>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="product-image sticky-top" style="top: 90px;">
+              <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=600&h=600&fit=crop" 
+                   class="img-fluid rounded shadow-sm" alt="Филадельфия">
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="product-info">
+              <h1 class="product-details__title display-5 fw-bold mb-3">Филадельфия</h1>
+              
+              <div class="product-details__rating mb-3">
+                <span class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </span>
+                <span class="text-muted ms-2">(128 отзывов)</span>
+              </div>
+
+              <div class="product-details__price mb-4">
+                <span class="display-4 text-danger fw-bold">590 ₽</span>
+                <span class="text-muted ms-2">/ 8 шт</span>
+              </div>
+
+              <div class="product-details__description mb-4">
+                <h5>Описание</h5>
+                <p class="text-muted">
+                  Классический ролл Филадельфия - один из самых популярных в нашем меню. 
+                  Сочетание нежного лосося, сливочного сыра и хрустящего огурца создает 
+                  идеальный баланс вкусов. Подается с имбирем, васаби и соевым соусом.
+                </p>
+              </div>
+
+              <div class="product-details__ingredients mb-4">
+                <h5>Состав</h5>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Лосось свежий</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Сливочный сыр</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Огурец</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Рис</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i>Нори</li>
+                </ul>
+              </div>
+
+              <div class="product-details__nutrition mb-4">
+                <h5>Пищевая ценность (на 100г)</h5>
+                <div class="row g-2 text-center">
+                  <div class="col-3">
+                    <div class="card border-0 bg-light">
+                      <div class="card-body p-2">
+                        <div class="fw-bold">142</div>
+                        <small class="text-muted">ккал</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="card border-0 bg-light">
+                      <div class="card-body p-2">
+                        <div class="fw-bold">8.5г</div>
+                        <small class="text-muted">белки</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="card border-0 bg-light">
+                      <div class="card-body p-2">
+                        <div class="fw-bold">5.2г</div>
+                        <small class="text-muted">жиры</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="card border-0 bg-light">
+                      <div class="card-body p-2">
+                        <div class="fw-bold">15.3г</div>
+                        <small class="text-muted">углев.</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-details__quantity mb-4">
+                <h5>Количество</h5>
+                <div class="input-group" style="max-width: 150px;">
+                  <button class="btn btn-outline-secondary" type="button" id="decreaseQty">
+                    <i class="bi bi-dash"></i>
+                  </button>
+                  <input type="number" class="form-control text-center" value="1" min="1" id="quantity">
+                  <button class="btn btn-outline-secondary" type="button" id="increaseQty">
+                    <i class="bi bi-plus"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="product-details__actions d-grid gap-2 d-md-flex">
+                <button class="btn btn-danger btn-lg px-5" onclick="addToCart(1)">
+                  <i class="bi bi-cart-plus"></i> Добавить в корзину
+                </button>
+                <button class="btn btn-outline-danger btn-lg">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Похожие товары -->
+        <section class="related-products mt-5">
+          <h3 class="mb-4">Вам также может понравиться</h3>
+          <div class="row g-4">
+            
+            <div class="col-6 col-md-3">
+              <div class="product-card card border-0 shadow-sm h-100">
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=300&h=200&fit=crop" class="card-img-top" alt="Калифорния">
+                <div class="card-body">
+                  <h5 class="product-card__title">Калифорния</h5>
+                  <p class="product-card__description text-muted small">Краб, авокадо, икра тобико</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="product-card__price fw-bold text-danger">490 ₽</span>
+                    <button class="btn btn-sm btn-outline-danger" onclick="addToCart(2)">
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="product-card card border-0 shadow-sm h-100">
+                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=300&h=200&fit=crop" class="card-img-top" alt="Дракон">
+                <div class="card-body">
+                  <h5 class="product-card__title">Дракон</h5>
+                  <p class="product-card__description text-muted small">Угорь, огурец, авокадо</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="product-card__price fw-bold text-danger">650 ₽</span>
+                    <button class="btn btn-sm btn-outline-danger" onclick="addToCart(3)">
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="product-card card border-0 shadow-sm h-100">
+                <img src="https://images.unsplash.com/photo-1563612116625-3012372fccce?w=300&h=200&fit=crop" class="card-img-top" alt="Темпура">
+                <div class="card-body">
+                  <h5 class="product-card__title">Темпура</h5>
+                  <p class="product-card__description text-muted small">Креветка темпура, огурец</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="product-card__price fw-bold text-danger">520 ₽</span>
+                    <button class="btn btn-sm btn-outline-danger" onclick="addToCart(5)">
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="product-card card border-0 shadow-sm h-100">
+                <img src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=300&h=200&fit=crop" class="card-img-top" alt="Сет Император">
+                <div class="card-body">
+                  <h5 class="product-card__title">Сет Император</h5>
+                  <p class="product-card__description text-muted small">40 шт, ассорти</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="product-card__price fw-bold text-danger">1990 ₽</span>
+                    <button class="btn btn-sm btn-outline-danger" onclick="addToCart(4)">
+                      <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2026 Суши Доставка. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/pwa.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Управление количеством
+    const qtyInput = document.getElementById('quantity');
+    document.getElementById('increaseQty').addEventListener('click', () => {
+      qtyInput.value = parseInt(qtyInput.value) + 1;
+    });
+    document.getElementById('decreaseQty').addEventListener('click', () => {
+      if (parseInt(qtyInput.value) > 1) {
+        qtyInput.value = parseInt(qtyInput.value) - 1;
+      }
+    });
+  </script>
+</body>
+</html>
