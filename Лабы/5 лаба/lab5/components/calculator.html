@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .calculator {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .calculator-display {
+            padding: 25px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 
+                inset 8px 8px 16px var(--shadow-dark),
+                inset -8px -8px 16px var(--shadow-light);
+        }
+
+        .display-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            text-align: right;
+            color: var(--text-primary);
+            min-height: 60px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .display-history {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            text-align: right;
+            color: var(--text-secondary);
+            min-height: 24px;
+            margin-bottom: 10px;
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .calc-btn {
+            padding: 22px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 12px;
+            background: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            transition: all 0.2s ease;
+        }
+
+        .calc-btn:active {
+            box-shadow: 
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+        }
+
+        .calc-btn.operator {
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        .calc-btn.equals {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            grid-column: span 2;
+        }
+
+        .calc-btn.clear {
+            color: #e74c3c;
+        }
+
+        .calc-btn.zero {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body class="component-page">
+    <div class="component-container fade-in">
+        <a href="../index.html" class="back-link">← Назад к списку</a>
+        
+        <div class="component-header">
+            <h1>Калькулятор</h1>
+            <p>Базовые арифметические операции</p>
+        </div>
+
+        <div class="calculator">
+            <div class="calculator-display">
+                <div class="display-history" id="history"></div>
+                <div class="display-text" id="display">0</div>
+            </div>
+
+            <div class="calculator-buttons">
+                <button class="calc-btn clear" data-action="clear">C</button>
+                <button class="calc-btn" data-action="backspace">⌫</button>
+                <button class="calc-btn operator" data-action="operator" data-value="%">%</button>
+                <button class="calc-btn operator" data-action="operator" data-value="/">÷</button>
+
+                <button class="calc-btn" data-action="number" data-value="7">7</button>
+                <button class="calc-btn" data-action="number" data-value="8">8</button>
+                <button class="calc-btn" data-action="number" data-value="9">9</button>
+                <button class="calc-btn operator" data-action="operator" data-value="*">×</button>
+
+                <button class="calc-btn" data-action="number" data-value="4">4</button>
+                <button class="calc-btn" data-action="number" data-value="5">5</button>
+                <button class="calc-btn" data-action="number" data-value="6">6</button>
+                <button class="calc-btn operator" data-action="operator" data-value="-">-</button>
+
+                <button class="calc-btn" data-action="number" data-value="1">1</button>
+                <button class="calc-btn" data-action="number" data-value="2">2</button>
+                <button class="calc-btn" data-action="number" data-value="3">3</button>
+                <button class="calc-btn operator" data-action="operator" data-value="+">+</button>
+
+                <button class="calc-btn zero" data-action="number" data-value="0">0</button>
+                <button class="calc-btn" data-action="decimal">.</button>
+                <button class="calc-btn equals" data-action="equals">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/calculator.js"></script>
+</body>
+</html>
